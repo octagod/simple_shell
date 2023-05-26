@@ -204,7 +204,7 @@ char **_splitline(char *input)
 		if (a == buffer_size)
 		{
 			buffer_size += TOK_BUFSIZE;
-			array_of_tokken = _reallocatedp(array_of_tokken, a, sizeof(char *) * buffer_size);
+			array_of_tokken = _reallocatedp(array_of_tokken, a, buffer_size);
 			if (array_of_tokken == NULL)
 			{
 				write(STDERR_FILENO, ": allocation error\n", 18);

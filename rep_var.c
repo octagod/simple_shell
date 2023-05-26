@@ -35,7 +35,7 @@ void checkenv_(r_var **h, char *in, data_shell *data)
 
 	while (in[j])
 	{
-		if (in[j] == ';' ||in[j] == '\n'  || in[j] == ' ' || in[j] == '\t')
+		if (in[j] == ';' || in[j] == '\n'  || in[j] == ' ' || in[j] == '\t')
 			break;
 		j++;
 	}
@@ -100,8 +100,7 @@ char *replaceinput_(r_var **head, char *input, char *new_input, int nlen)
 	int a, j, k;
 
 	ptr_index = *head;
-	j = a = 0;
-	while (a < nlen)
+	for (j = a = 0; a < nlen; a++)
 	{
 		if (input[j] == '$')
 		{
@@ -112,12 +111,8 @@ char *replaceinput_(r_var **head, char *input, char *new_input, int nlen)
 			}
 			else if (ptr_index->len_var && !(ptr_index->len_val))
 			{
-				k = 0;
-				while (k < ptr_index->len_var)
-				{
+				for (k = 0; k < ptr_index->len_var; k++)
 					j++;
-					k++;
-				}
 				a--;
 			}
 			else
@@ -137,9 +132,7 @@ char *replaceinput_(r_var **head, char *input, char *new_input, int nlen)
 			new_input[a] = input[j];
 			j++;
 		}
-		a++;
 	}
-
 	return (new_input);
 }
 

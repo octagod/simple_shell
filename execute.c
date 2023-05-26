@@ -2,22 +2,22 @@
 
 /**
  * is_crr_dir - checks ":" if is in the current directory.
- * @location: type char pointer char.
+ * @path: type char pointer char.
  * @i: type int pointer of index.
  * Return: 1 if the location is searchable in the cd, 0 otherwise.
  */
-int is_crr_dir(char *location, int *x)
+int is_crr_dir(char *path, int *i)
 {
-	if (location[*x] == ':')
+	if (path[*i] == ':')
 		return (1);
 
-	while (location[*x] != ':' && location[*x])
+	while (path[*i] != ':' && path[*i])
 	{
-		*x += 1;
+		*i += 1;
 	}
 
-	if (location[*x])
-		*x += 1;
+	if (path[*i])
+		*i += 1;
 
 	return (0);
 }
@@ -178,7 +178,6 @@ int _execute(data_shell *datash)
 		if (cmd_error_check(dir, datash) == 1)
 			return (1);
 	}
-
 	pd = fork();
 	if (pd == 0)
 	{
@@ -195,12 +194,10 @@ int _execute(data_shell *datash)
 	}
 	else
 	{
-		do
-		{
+		do {
 			wpd = waitpid(pd, &pos, WUNTRACED);
-		}while (!WIFEXITED(pos) && !WIFSIGNALED(pos));
+		} while (!WIFEXITED(pos) && !WIFSIGNALED(pos));
 	}
-
 	datash->status = pos / 256;
 	return (1);
 }

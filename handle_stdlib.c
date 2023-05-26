@@ -71,20 +71,21 @@ char *int_to_string(int n)
  */
 int parseint(char *s)
 {
-	unsigned int string_counter = 0, string_length = 0, x= 0, y= 1, z= 1, a;
+	unsigned int string_counter = 0, string_length = 0, x = 0, y = 1, z = 1, a;
 
 	for (; *(s + string_counter) != '\0';)
 	{
-		if (string_length > 0 && (*(s + string_counter) < '0' || *(s + string_counter) > '9'))
+		if (string_length > 0 && (*(s + string_counter) < '0'
+		|| *(s + string_counter) > '9'))
 			break;
 
 		if (*(s + string_counter) == '-')
-			y*= -1;
+			y *= -1;
 
 		if ((*(s + string_counter) >= '0') && (*(s + string_counter) <= '9'))
 		{
 			if (string_length > 0)
-				z*= 10;
+				z *= 10;
 			string_length++;
 		}
 		string_counter++;
@@ -93,9 +94,9 @@ int parseint(char *s)
 	a = string_counter - string_length;
 	while (a < string_counter)
 	{
-		x= x+ ((*(s + a) - 48) * z);
-		z/= 10;
+		x = x + ((*(s + a) - 48) * z);
+		z /= 10;
 		a++;
 	}
-	return (x* y);
+	return (x * y);
 }

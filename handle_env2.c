@@ -40,8 +40,8 @@ void set_env(char *name, char *value, data_shell *datash)
 
 	for (x = 0; datash->_environ[x]; x++)
 	{
-		env_name = _strtok(env_, "=");
 		env_ = _strdup(datash->_environ[x]);
+		env_name = _strtok(env_, "=");
 		if (_compare(env_name, name) == 0)
 		{
 			free(datash->_environ[x]);
