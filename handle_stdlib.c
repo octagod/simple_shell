@@ -12,8 +12,8 @@ int get_num_len(int n)
 
 	if (n < 0)
 	{
-		number_one = n * -1;
 		length++;
+		number_one = n * -1;
 	}
 	else
 	{
@@ -21,8 +21,8 @@ int get_num_len(int n)
 	}
 	for (; number_one > 9;)
 	{
-		number_one = number_one / 10;
 		length++;
+		number_one = number_one / 10;
 	}
 
 	return (length);
@@ -46,8 +46,8 @@ char *int_to_string(int n)
 
 	if (n < 0)
 	{
-		string_pointer[0] = '-';
 		number_one = n * -1;
+		string_pointer[0] = '-';
 	}
 	else
 	{
@@ -55,12 +55,12 @@ char *int_to_string(int n)
 	}
 
 	length--;
-	for (; number_one > 0; )
-	{
+	do {
 		*(string_pointer + length) = (number_one % 10) + '0';
-		length--;
 		number_one = number_one / 10;
-	}
+		length--;
+	} while (number_one > 0)
+		;
 	return (string_pointer);
 }
 

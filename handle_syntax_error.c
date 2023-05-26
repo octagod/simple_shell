@@ -32,16 +32,16 @@ int _syntax_err(char *input, int i, char last)
 	if (*input == '\0')
 		return (0);
 
-	if (*input == '\t' || *input == ' ')
+	if (*input == ' ' || *input == '\t')
 		return (_syntax_err(input + 1, i + 1, last));
 
 	if (*input == ';')
-		if (last == ';' || last == '&' || last == '|')
+		if (last == '|' || last == '&' || last == ';')
 			return (i);
 
 	if (*input == '|')
 	{
-		if (last == '&' || last == ';')
+		if (last == ';' || last == '&')
 			return (i);
 
 		if (last == '|')
@@ -54,7 +54,7 @@ int _syntax_err(char *input, int i, char last)
 
 	if (*input == '&')
 	{
-		if (last == '|' || last == ';')
+		if (last == ';' || last == '|')
 			return (i);
 
 		if (last == '&')
@@ -88,11 +88,7 @@ int index_of_first_char(char *input, int *i)
 		}
 
 		if (input[*i] == ';' || input[*i] == '|' || input[*i] == '&')
-		{
-			*i += 1;
 			return (-1);
-		}
-
 		*i += 1;
 		break;
 	}

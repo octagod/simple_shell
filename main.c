@@ -16,8 +16,8 @@ void freedata_(data_shell *datash)
 		a++;
 	}
 
-	free(datash->pid);
 	free(datash->_environ);
+	free(datash->pid);
 }
 
 /**

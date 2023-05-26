@@ -10,9 +10,9 @@
  */
 void cpy_info(void *newptr, const void *ptr, unsigned int size)
 {
-	unsigned int a = 0;
 	char *charcter_pointer = (char *)ptr;
 	char *new_charcter_pointer = (char *)newptr;
+	unsigned int a = 0;
 
 	while (a < size)
 	{
