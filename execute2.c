@@ -14,7 +14,7 @@ int execute_line(data_shell *datash)
 		return (1);
 
 	_builtin_ = _getbuiltin(datash->args[0]);
-	
+
 	if (_builtin_ != NULL)
 		return (_builtin_(datash));
 
