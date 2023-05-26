@@ -195,10 +195,10 @@ int _execute(data_shell *datash)
 	}
 	else
 	{
-		while (!WIFEXITED(pos) && !WIFSIGNALED(pos))
+		do
 		{
 			wpd = waitpid(pd, &pos, WUNTRACED);
-		}
+		}while (!WIFEXITED(pos) && !WIFSIGNALED(pos));
 	}
 
 	datash->status = pos / 256;

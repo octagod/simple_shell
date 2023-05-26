@@ -17,6 +17,7 @@ int (*_getbuiltin(char *cmd))(data_shell *)
 		{NULL, NULL}};
 	int x;
 
+	x = 0;
 	while (builtin[x].name)
 	{
 		if (_compare(builtin[x].name, cmd) == 0)
