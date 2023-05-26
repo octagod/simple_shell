@@ -7,24 +7,24 @@
  */
 void _strrev(char *s)
 {
-	int location = 0, a, b;
-	char *line_string, string_copy;
+	int index = 0, x, y;
+	char *word, short_time;
 
-	while (location >= 0)
+	for (; index >= 0; index++)
 	{
-		if (s[location] == '\0')
+		if (s[index] == '\0')
 			break;
-		location++;
 	}
-	line_string = s;
-
-	for (a = 0; a < (location - 1); a++)
+	word = s;
+	x = 0;
+	while (x < (index - 1))
 	{
-		for (b = a + 1; b > 0; b--)
+		for (y = x + 1; y > 0; y--)
 		{
-			string_copy = *(line_string + b);
-			*(line_string + b) = *(line_string + (b - 1));
-			*(line_string + (b - 1)) = string_copy;
+			short_time = *(word + y);
+			*(word + y) = *(word + (y - 1));
+			*(word + (y - 1)) = short_time;
 		}
+		x++;
 	}
 }
