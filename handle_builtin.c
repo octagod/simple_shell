@@ -102,22 +102,22 @@ int gethelp_(data_shell *datash)
 
 /**
  * bringline_ - assigns the line var for getline_
- * @print_line_: Buffer that store the input str
+ * @lineptr: Buffer that store the input str
  * @buffer: str that is been called to line
  * @n: size of line
  * @j: size of buffer
  */
-void bringline_(char **print_line_, size_t *n, char *buffer, size_t j)
+void bringline_(char **lineptr, size_t *n, char *buffer, size_t j)
 {
 
-	if (*print_line_ == NULL)
+	if (*lineptr == NULL)
 	{
 		if (j > BUFSIZE)
 			*n = j;
 
 		else
 			*n = BUFSIZE;
-		*print_line_ = buffer;
+		*lineptr = buffer;
 	}
 	else if (*n < j)
 	{
@@ -125,11 +125,11 @@ void bringline_(char **print_line_, size_t *n, char *buffer, size_t j)
 			*n = j;
 		else
 			*n = BUFSIZE;
-		*print_line_ = buffer;
+		*lineptr = buffer;
 	}
 	else
 	{
-		_copy(*print_line_, buffer);
+		_copy(*lineptr, buffer);
 		free(buffer);
 	}
 }
