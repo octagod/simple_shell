@@ -36,14 +36,10 @@ char *_getenv(const char *name, char **_environ)
 	char *ptr_env;
 	int z, err_num;
 
-	/* Initialize ptr_env value */
 	ptr_env = NULL;
 	err_num = 0;
-	/* Compare all environment variables */
-	/* environ is declared in the header file */
 	for (z = 0; _environ[z]; z++)
 	{
-		/* If name and env are equal */
 		err_num = compare_env(_environ[z], name);
 		if (err_num)
 		{

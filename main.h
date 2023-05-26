@@ -17,7 +17,6 @@
 #define TOK_DELIM " \t\r\n\a"
 /* #define PATH_MAX 1024 */
 
-/* Points to an array of pointers to strings called the "environment" */
 extern char **environ;
 
 

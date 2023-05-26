@@ -79,21 +79,19 @@ char *_strtok(char str[], const char *delim)
 	{
 		if (cmp_chars(str, delim))
 			return (NULL);
-		cut = str; /*Store first address*/
+		cut = str;
 		a = _strlen(str);
-		end_point = &str[a]; /*Store last address*/
+		end_point = &str[a];
 	}
 	start_point = cut;
-	if (start_point == end_point) /*Reaching the end*/
+	if (start_point == end_point)
 		return (NULL);
 
 	for (bool = 0; *cut; cut++)
 	{
-		/*Breaking loop finding the next token*/
 		if (cut != start_point)
 			if (*cut && *(cut - 1) == '\0')
 				break;
-		/*Replacing delimiter for null char*/
 		for (a = 0; delim[a]; a++)
 		{
 			if (*cut == delim[a])
@@ -104,10 +102,10 @@ char *_strtok(char str[], const char *delim)
 				break;
 			}
 		}
-		if (bool == 0 && *cut) /*Str != Delim*/
+		if (bool == 0 && *cut)
 			bool = 1;
 	}
-	if (bool == 0) /*Str == Delim*/
+	if (bool == 0)
 		return (NULL);
 	return (start_point);
 }
